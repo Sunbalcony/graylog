@@ -111,8 +111,9 @@ function check_firewall(){
 		firewall-cmd --zone=public --add-port=27017/tcp --permanent
 		firewall-cmd --zone=public --add-port=9200/tcp --permanent
 		firewall-cmd --zone=public --add-port=9300/tcp --permanent
-        firewall-cmd --zone=public --add-port=12201/tcp --permanent
+                firewall-cmd --zone=public --add-port=12201/tcp --permanent
 		firewall-cmd --reload
+		echo "##############################firewall配置完成##############################"
 	elif [ -e "/etc/ufw/before.rules" ]
 	then
 		sudo ufw allow 9000/tcp
@@ -120,7 +121,7 @@ function check_firewall(){
 		sudo ufw allow 9300/tcp
 		sudo ufw allow 27017/tcp
 	fi
-    echo "##############################firewall配置完成##############################"
+    
 }
 
 #选择安装方式
